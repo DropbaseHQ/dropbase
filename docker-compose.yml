@@ -21,4 +21,4 @@ services:
   dropbase-client:
     image: dropbase/client:latest
     ports:
-      - "3000:3000"
+      - "3000:80"
