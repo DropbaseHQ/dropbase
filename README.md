@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h2 align="center">Internal tools builder that fits you.</h3>
+<h2 align="center">Build admin panels and internal web apps with Python</h3>
 
 <p align="center">
 <a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://docs.dropbase.io/quickstart">Quickstart</a> · <a href="https://docs.dropbase.io/setup/developer">Local Setup</a><p>
@@ -15,13 +15,17 @@
   </a>
 </p>
 
-Dropbase is a developer-first platform to build internal web apps with just Python and SQL. It integrates with your existing Python scripts and libraries so you don’t need to rewrite them to fit our framework.
+# Overview
 
-State & Context objects let you access and modify the UI state and context via Python functions, so you don’t have to write frontend code.
+Dropbase is a developer-first platform to build internal web apps with just Python. It lets you easily import your existing Python libraries and scripts so you don’t have to rewrite them to fit our framework.
 
-With Dropbase you can build admin panels, billing dashboards, and internal engineering tools. You can build apps by choosing UI components from a list and binding them to data fetcher functions or Python scripts.
+Build apps by selecting UI components from a list and binding them to data fetcher functions or Python scripts. Use State & Context objects to access and modify the UI state and context directly via Python functions. There's no need to write frontend code. 
 
-### Structure of Dropbase Apps
+Dropbase has a highly opinionated app layout that speeds up app development and results in simple apps that effectively solve user problems. All apps consists of a table view and a widget sidebar. By placing table(s) in the table view and UI components in the sidebar widget, you can quickly build anything from admin panels, billing dashboards, and internal engineering tools.
+
+Once you've built your apps, share them with other users via roles, groups, permissions, and granular controls.
+
+## Structure of Dropbase Apps
 
 - Apps
   - Page
@@ -29,3 +33,9 @@ With Dropbase you can build admin panels, billing dashboards, and internal engin
     2. Widget
        - UI Components
     3. Functions (data fetching functions or scripts)
+
+## Why Dropbase?
+
+1. Build fullstack internal apps with just Python; there’s no need work with frontend libraries, frameworks, or code
+2. Easily import your existing Python scripts and libraries and leverage third party libraries like pandas and numpy in your apps
+3. Secure platform with granular app permissions, role based access control, self-hosted deployments, and source-available distribution
