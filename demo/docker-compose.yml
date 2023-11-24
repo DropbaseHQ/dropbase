@@ -20,7 +20,7 @@ services:
       service: dropbase-client
   demo-db:
     build:
-      context: demo
+      context: .
       dockerfile: Dockerfile
     environment:
       - POSTGRES_DB=dropbasedemodb
