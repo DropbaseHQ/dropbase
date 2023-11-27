@@ -5,7 +5,7 @@ services:
     volumes:
       - ./workspace:/project/workspace
     ports:
-      - "9000:9000"
+      - "9090:9090"
     env_file:
       - .env
     environment:
@@ -15,10 +15,10 @@ services:
     volumes:
       - ./workspace:/project/workspace
     ports:
-      - "9001:9001"
+      - "9095:9095"
     environment:
       - PYTHONUNBUFFERED=1
   dropbase-client:
     image: dropbase/client:latest
     ports:
-      - "3000:80"
+      - "3030:80"
