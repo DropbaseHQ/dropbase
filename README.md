@@ -7,7 +7,7 @@
 <h2 align="center">Build admin panels and internal web apps with Python</h3>
 
 <p align="center">
-<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://docs.dropbase.io/quickstart">Quickstart</a> · <a href="https://docs.dropbase.io/setup/developer">Local Setup</a><p>
+<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://docs.dropbase.io/quickstart">Quickstart</a> · <a href="https://docs.dropbase.io/category/demos">Demos</a> · <a href="https://docs.dropbase.io/setup/workspace">Sign up</a> · <a href="https://docs.dropbase.io/setup/developer">Local Setup</a><p>
 
 <p align="center">
   <a href="https://dropbase.io" target="_blank">
@@ -39,3 +39,11 @@ Once you've built your apps, share them with other users via roles, groups, perm
 1. Build fullstack internal apps with just Python; there’s no need work with frontend libraries, frameworks, or code
 2. Easily import your existing Python scripts and libraries and leverage third party libraries like pandas and numpy in your apps
 3. Secure platform with granular app permissions, role based access control, self-hosted deployments, and source-available distribution
+
+## Demo Videos
+
+- [Data editor](https://youtu.be/R1cHO9lMRXo)
+- [Customer approval](https://youtu.be/A1MIIRNkv3Q)
+- [Email notification system](https://youtu.be/2uLjazAezrU)
+- [Admin panel](https://youtu.be/if0E8oC0Qc4)
+
