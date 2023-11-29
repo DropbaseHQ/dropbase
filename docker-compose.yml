@@ -1,7 +1,11 @@
 version: "3.8"
 services:
+  dropbase-client:
+    image: dropbase/client:0.0.2
+    ports:
+      - "3030:80"
   dropbase-server:
-    image: dropbase/server:0.0.1
+    image: dropbase/server:0.0.2
     volumes:
       - ./workspace:/project/workspace
     ports:
@@ -18,7 +22,3 @@ services:
       - "9095:9095"
     environment:
       - PYTHONUNBUFFERED=1
-  dropbase-client:
-    image: dropbase/client:0.0.1
-    ports:
-      - "3030:80"
