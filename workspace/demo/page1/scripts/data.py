@@ -1,7 +1,8 @@
 from workspace.demo.page1 import State
 import pandas as pd
 
-def demo(state: State) -> pd.DataFrame:
+
+def data(state: State) -> pd.DataFrame:
     data = {
         'CustomerID': [1, 2, 3, 4, 5],
         'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
