@@ -15,7 +15,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
   dropbase-lsp:
-    image: dropbase/lsp:0.0.1
+    image: dropbase/lsp:0.0.2
     volumes:
       - ./workspace:/project/workspace
     ports:
