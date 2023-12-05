@@ -47,3 +47,56 @@ Once you've built your apps, share them with other users via roles, groups, perm
 - [Email notification system](https://youtu.be/2uLjazAezrU)
 - [Admin panel](https://youtu.be/if0E8oC0Qc4)
 
+## Get Started
+
+1. Create an account at https://app.dropbase.io/
+2. Follow instructions for local setup at: https://docs.dropbase.io/setup/developer (or see below for a quick local setup guide)
+
+## Quick Local Setup Guide
+
+### 0. Pre-requisites
+
+* Sign up for Dropbase account
+* Install Docker. We strongly recommend using [Docker Desktop](https://www.docker.com/products/docker-desktop/), especially if you're on Apple M chips. Alternatively, you can install `docker` and `docker-compose`.
+* Have internet access.
+
+### 1. Clone the `dropbase` repo
+
+```bash
+
+git clone https://github.com/DropbaseHQ/dropbase.git
+
+```
+
+The `dropbase` directory (root) will contain the following important subdirectories:
+
+* demo: Contains docker files to spin up a sample Postgres database with seed data
+* workspace: Your apps code and files
+
+Github repo at [Dropbase Worker](https://github.com/DropbaseHQ/dropbase).
+
+### 2. Create a .env file
+
+In the root directory (`dropbase`), create a `.env` file, paste the following context, then save it:
+
+```text
+
+DROPBASE_TOKEN='YOUR_WORKSPACE_TOKEN'
+DROPBASE_API_URL="https://api.dropbase.io"
+
+```
+
+### 3. Install requirements and start servers
+
+In your terminal, run the following command from the root directory (`dropbase`)
+
+```bash
+
+docker-compose up
+
+```
+
+### 4. Create your first Dropbase app
+
+Go to the Dropbase App Dashboard `localhost:3030/apps` from your browser and click on the Create app button to create your first Dropbase app.
+
