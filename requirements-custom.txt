@@ -1,3 +1,1 @@
 # Add your python package dependencies here
-yfinance==0.2.33
-pandas-datareader==0.10.0

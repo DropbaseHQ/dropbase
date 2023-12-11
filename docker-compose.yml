@@ -9,6 +9,7 @@ services:
     volumes:
       - ./workspace:/project/workspace
       - ./requirements-custom.txt:/project/requirements-custom.txt
+      # Attach custom volumes here
     ports:
       - "9090:9090"
     env_file:
@@ -19,6 +20,7 @@ services:
     image: dropbase/lsp:0.0.3
     volumes:
       - ./workspace:/project/workspace
+      # Attach custom volumes here
     ports:
       - "9095:9095"
     environment:
