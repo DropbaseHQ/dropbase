@@ -100,3 +100,6 @@ docker-compose up
 
 Go to the Dropbase App Dashboard `localhost:3030/apps` from your browser and click on the Create app button to create your first Dropbase app.
 
+## Deploy to your server
+
+The Dropbase components come in the form of Docker containers. If you wish to implement them on your server, you can consult our [ansible scripts](./scripts/ansible) for deployment guidance.

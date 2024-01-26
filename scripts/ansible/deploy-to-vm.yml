@@ -1,0 +1,81 @@
+- name: Deploy new dropbase to linux machine
+  hosts: all
+  gather_facts: no
+  become: yes
+  vars:
+    deploy_user: "{{ ansible_user }}"
+    deploy_dir: "/opt/dropbase"
+
+  tasks:
+    - name: Debug message
+      debug:
+        msg: Using {{ deploy_user }} user to deploy dropbase to {{ ansible_host }}
+
+    - name: Install required packages
+      package:
+        name:
+          - docker
+        state: latest
+
+    - name: Install pip packages
+      pip:
+        name:
+          - docker
+          - docker-compose
+
+    - name: Make sure deploy user belong to group and "docker" group
+      user:
+        name: "{{ deploy_user }}"
+        groups:
+          - docker
+        append: yes
+      become: yes
+
+    - name: Make sure docker service is enabled and started
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Make sure docker-compose exists
+      file:
+        path: "{{ deploy_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Create docker-compose.yml file
+      template:
+        src: ../../docker-compose.yml
+        dest: "{{ deploy_dir }}/docker-compose.yml"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+        mode: '0644'
+
+    - name: Copy workspace to the server
+      ansible.builtin.copy:
+        src: ../../requirements-custom.txt
+        dest: "{{ deploy_dir }}/requirements-custom.txt"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+
+    - name: Copy requirements-custom.txt to the server
+      ansible.builtin.copy:
+        src: ../../workspace
+        dest: "{{ deploy_dir }}"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+        mode: '0644'
+
+    - name: Create app .env file
+      template:
+        src: templates/env.tmpl
+        dest: "{{ deploy_dir }}/.env"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+        mode: '0644'
+
+    - name: Pull and start the docker containers
+      community.docker.docker_compose:
+        project_src: "{{ deploy_dir }}"
+        build: false
+        pull: true
