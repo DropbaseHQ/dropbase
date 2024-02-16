@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#Check if dropbase/worker:0.0.2 docker image is present
-if [[ "$(docker images -q dropbase/worker:0.0.2 2> /dev/null)" == "" ]]; then
+#Check if dropbase/worker:0.0.3 docker image is present
+if [[ "$(docker images -q dropbase/worker:0.0.3 2> /dev/null)" == "" ]]; then
   #Image not found. Pull it from docker registry
   echo "Image not found. Pulling from Docker Registry..."
-  docker pull dropbase/worker:0.0.2
+  docker pull dropbase/worker:0.0.3
 else
   echo "Image found"
 fi
