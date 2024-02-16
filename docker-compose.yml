@@ -1,11 +1,11 @@
 version: "3.8"
 services:
   dropbase-client:
-    image: dropbase/client:0.2.2
+    image: dropbase/client:0.2.3
     ports:
       - "3030:80"
   dropbase-server:
-    image: dropbase/server:0.2.3
+    image: dropbase/server:0.2.4
     volumes:
       - ./workspace:/project/workspace
       - ./requirements-custom.txt:/project/requirements-custom.txt
@@ -19,7 +19,7 @@ services:
       - PYTHONUNBUFFERED=1
       - HOST_WORKSPACE_PATH=${HOST_WORKSPACE_PATH}
   dropbase-lsp:
-    image: dropbase/lsp:0.0.5
+    image: dropbase/lsp:0.0.6
     volumes:
       - ./workspace:/project/workspace
       # Attach custom volumes here
