@@ -26,6 +26,8 @@ apt-get install sshpass
 make deploy \
   token=dropbase_workspace_token \
   host=your_server_ip \
-  user=your_server_user \ 
+  user=your_server_user \
+  ssh_key_file=your_private_ssh_key_file # if you use a custom \
   password=your_server_user_password # only for user/password authentication
 ```
+
