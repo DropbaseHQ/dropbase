@@ -22,6 +22,10 @@ apt-get install sshpass
 
 ### Deploy dropbase to your server
 
+Before you deploy, make sure you can authenticate to the server using a user has sudo privileges. 
+
+You should [enable passwordless sudo](https://timonweb.com/devops/how-to-enable-passwordless-sudo-for-a-specific-user-in-linux/) so that you don't have to enter the password every time the script runs a new step.
+
 ```bash
 make deploy \
   token=dropbase_workspace_token \
