@@ -1,14 +1,15 @@
 version: "3.8"
 services:
   dropbase-client:
-    image: dropbase/client:0.2.0
+    image: dropbase/client:0.2.3
     ports:
       - "3030:80"
   dropbase-server:
-    image: dropbase/server:0.2.0
+    image: dropbase/server:0.2.4
     volumes:
       - ./workspace:/project/workspace
       - ./requirements-custom.txt:/project/requirements-custom.txt
+      - /var/run/docker.sock:/var/run/docker.sock
       # Attach custom volumes here
     ports:
       - "9090:9090"
@@ -16,8 +17,9 @@ services:
       - .env
     environment:
       - PYTHONUNBUFFERED=1
+      - HOST_WORKSPACE_PATH=${HOST_WORKSPACE_PATH}
   dropbase-lsp:
-    image: dropbase/lsp:0.0.5
+    image: dropbase/lsp:0.0.6
     volumes:
       - ./workspace:/project/workspace
       # Attach custom volumes here
@@ -25,3 +27,7 @@ services:
       - "9095:9095"
     environment:
       - PYTHONUNBUFFERED=1
+  redis:
+    image: redis
+    ports:
+      - 6379:6379

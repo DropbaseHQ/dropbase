@@ -19,7 +19,7 @@
 
 Dropbase is a developer-first platform to build internal web apps with just Python. It lets you easily import your existing Python libraries and scripts so you don’t have to rewrite them to fit our framework.
 
-Build apps by selecting UI components from a list and binding them to data fetcher functions or Python scripts. Use State & Context objects to access and modify the UI state and context directly via Python functions. There's no need to write frontend code. 
+Build apps by selecting UI components from a list and binding them to data fetcher functions or Python scripts. Use State & Context objects to access and modify the UI state and context directly via Python functions. There's no need to write frontend code.
 
 Dropbase has a highly opinionated app layout that speeds up app development and results in simple apps that effectively solve user problems. All apps consists of a table view and a widget sidebar. By placing table(s) in the table view and UI components in the sidebar widget, you can quickly build anything from admin panels, billing dashboards, and internal engineering tools.
 
@@ -56,9 +56,9 @@ Once you've built your apps, share them with other users via roles, groups, perm
 
 ### 0. Pre-requisites
 
-* Sign up for Dropbase account
-* Install Docker. We strongly recommend using [Docker Desktop](https://www.docker.com/products/docker-desktop/), especially if you're on Apple M chips. Alternatively, you can install `docker` and `docker-compose`.
-* Have internet access.
+- Sign up for Dropbase account
+- Install Docker. We strongly recommend using [Docker Desktop](https://www.docker.com/products/docker-desktop/), especially if you're on Apple M chips. Alternatively, you can install `docker` and `docker-compose`.
+- Have internet access.
 
 ### 1. Clone the `dropbase` repo
 
@@ -70,8 +70,8 @@ git clone https://github.com/DropbaseHQ/dropbase.git
 
 The `dropbase` directory (root) will contain the following important subdirectories:
 
-* demo: Contains docker files to spin up a sample Postgres database with seed data
-* workspace: Your apps code and files
+- demo: Contains docker files to spin up a sample Postgres database with seed data
+- workspace: Your apps code and files
 
 Github repo at [Dropbase Worker](https://github.com/DropbaseHQ/dropbase).
 
@@ -88,11 +88,12 @@ DROPBASE_API_URL="https://api.dropbase.io"
 
 ### 3. Install requirements and start servers
 
-In your terminal, run the following command from the root directory (`dropbase`)
+In your terminal, run the following commands from the root directory (`dropbase`)
 
 ```bash
 
-docker-compose up
+chmod +x start.sh
+./start.sh
 
 ```
 
@@ -103,3 +104,4 @@ Go to the Dropbase App Dashboard `localhost:3030/apps` from your browser and cli
 ## Deploy to your server
 
 The Dropbase components come in the form of Docker containers. If you wish to implement them on your server, you can consult our [ansible scripts](./scripts/ansible) for deployment guidance.
+
