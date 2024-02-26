@@ -1,6 +1,6 @@
 - name: Deploy new dropbase to linux machine
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   become: yes
   vars:
     deploy_user: "{{ ansible_user }}"
@@ -11,10 +11,39 @@
       debug:
         msg: Using {{ deploy_user }} user to deploy dropbase to {{ ansible_host }}
 
-    - name: Install required packages
+    - name: Add Docker GPG apt Key (Ubuntu)
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Add repository into sources list (Ubuntu)
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
+        state: present
+        filename: docker
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Install Docker (Ubuntu)
+      ansible.builtin.apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+        update_cache: true
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Install Docker (Amazon Linux)
       package:
         name:
           - docker
+        state: latest
+      when: ansible_distribution == 'Amazon'
+
+    - name: Install required packages
+      package:
+        name:
           - python3-pip
         state: latest
 
