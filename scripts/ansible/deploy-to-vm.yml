@@ -76,7 +76,7 @@
       file:
         path: "{{ deploy_dir }}"
         state: directory
-        mode: '0755'
+        mode: "0755"
 
     - name: Create docker-compose.yml file
       template:
@@ -84,22 +84,30 @@
         dest: "{{ deploy_dir }}/docker-compose.yml"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
-        mode: '0644'
+        mode: "0644"
 
-    - name: Copy workspace to the server
+    - name: Copy requirements-custom to the server
       ansible.builtin.copy:
         src: ../../requirements-custom.txt
         dest: "{{ deploy_dir }}/requirements-custom.txt"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
 
-    - name: Copy requirements-custom.txt to the server
+    - name: Copy worker to the server
+      ansible.builtin.copy:
+        src: ../../worker
+        dest: "{{ deploy_dir }}"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+        mode: "0644"
+
+    - name: Copy workspace to the server
       ansible.builtin.copy:
         src: ../../workspace
         dest: "{{ deploy_dir }}"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
-        mode: '0644'
+        mode: "0644"
 
     - name: Create app .env file
       template:
@@ -107,7 +115,7 @@
         dest: "{{ deploy_dir }}/.env"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
-        mode: '0644'
+        mode: "0644"
 
     - name: Pull and start the docker containers
       community.docker.docker_compose:
