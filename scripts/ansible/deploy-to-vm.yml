@@ -110,6 +110,12 @@
         group: "{{ deploy_user }}"
         mode: '0644'
 
+    - name: Updating CORS_ORIGINS environment variables
+      ansible.builtin.lineinfile:
+        path: "{{ deploy_dir }}/.env"
+        regexp: '^CORS_ORIGINS='
+        line: CORS_ORIGINS='["http://{{ ansible_host }}:3030", "http://www.{{ ansible_host }}:3030"]'
+
     - name: Pull and start the docker containers
       community.docker.docker_compose:
         project_src: "{{ deploy_dir }}"

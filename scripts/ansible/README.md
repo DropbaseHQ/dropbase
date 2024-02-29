@@ -2,11 +2,10 @@
 
 ### Prerequisites
 
-Make sure you have `.env` file on the project's root directory. The file must contain the 3 following environment variables:
+Make sure you have `.env` file on the project's root directory. The file must contain the two following environment variables:
 ```bash
 DROPBASE_API_URL="https://api.dropbase.io"
 DROPBASE_TOKEN='<your-dropbase-token>'
-CORS_ORIGINS='["http://your-server-ip:3030", "http://www.your-server-ip:3030"]'
 ```
 
 Make sure you have ansible installed on your machine where you will run the deployment. You can install ansible using
