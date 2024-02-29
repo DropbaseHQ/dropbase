@@ -111,10 +111,20 @@
         mode: '0644'
 
     - name: Updating CORS_ORIGINS environment variables
-      ansible.builtin.lineinfile:
+      lineinfile:
         path: "{{ deploy_dir }}/.env"
         regexp: '^CORS_ORIGINS='
         line: CORS_ORIGINS='["http://{{ ansible_host }}:3030", "http://www.{{ ansible_host }}:3030"]'
+
+    - name: Synchronize worker to the server
+      synchronize:
+        src: ../../worker
+        dest: "{{ deploy_dir }}"
+        delete: true
+      become: false
+
+    - name: Build worker image
+      shell: docker build -t dropbase/worker "{{ deploy_dir }}/worker"
 
     - name: Pull and start the docker containers
       community.docker.docker_compose:
