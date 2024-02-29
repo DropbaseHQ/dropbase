@@ -1,13 +1,10 @@
 #!/bin/bash
 
-#Check if dropbase/worker:0.0.3 docker image is present
-if [[ "$(docker images -q dropbase/worker:0.0.3 2> /dev/null)" == "" ]]; then
-  #Image not found. Pull it from docker registry
-  echo "Image not found. Pulling from Docker Registry..."
-  docker pull dropbase/worker:0.0.3
-else
-  echo "Image found"
-fi
+# build dropbase/worker
+docker image rm dropbase/worker
+cd worker
+docker build -t dropbase/worker .
+cd ..
 
 # Set the HOST_WORKSPACE_PATH to the current directory to be used by dropbase-server
 export HOST_WORKSPACE_PATH=$(pwd)
