@@ -2,6 +2,12 @@
 
 ### Prerequisites
 
+Make sure you have `.env` file on the project's root directory. The file must contain the two following environment variables:
+```bash
+DROPBASE_API_URL="https://api.dropbase.io"
+DROPBASE_TOKEN='<your-dropbase-token>'
+```
+
 Make sure you have ansible installed on your machine where you will run the deployment. You can install ansible using
 the following command:
 
@@ -28,10 +34,8 @@ You should [enable passwordless sudo](https://timonweb.com/devops/how-to-enable-
 
 ```bash
 make deploy \
-  token=dropbase_workspace_token \
   host=your_server_ip \
   user=your_server_user \
   ssh_key_file=your_private_ssh_key_file # if you use a custom \
   password=your_server_user_password # only for user/password authentication
 ```
-

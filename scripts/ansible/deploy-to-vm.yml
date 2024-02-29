@@ -25,7 +25,7 @@
       when: ansible_distribution == 'Ubuntu'
 
     - name: Install Docker (Ubuntu)
-      ansible.builtin.apt:
+      apt:
         name:
           - docker-ce
           - docker-ce-cli
@@ -72,11 +72,13 @@
         state: started
         enabled: yes
 
-    - name: Make sure docker-compose exists
+    - name: Make sure dropbase folder exists
       file:
         path: "{{ deploy_dir }}"
         state: directory
         mode: '0755'
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
 
     - name: Create docker-compose.yml file
       template:
@@ -86,31 +88,48 @@
         group: "{{ deploy_user }}"
         mode: '0644'
 
-    - name: Copy workspace to the server
-      ansible.builtin.copy:
+    - name: Copy requirements-custom.txt to the server
+      copy:
         src: ../../requirements-custom.txt
         dest: "{{ deploy_dir }}/requirements-custom.txt"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
 
-    - name: Copy requirements-custom.txt to the server
-      ansible.builtin.copy:
+    - name: Synchronize workspace to the server
+      synchronize:
         src: ../../workspace
         dest: "{{ deploy_dir }}"
-        owner: "{{ deploy_user }}"
-        group: "{{ deploy_user }}"
-        mode: '0644'
+        delete: true
+      become: false
 
     - name: Create app .env file
-      template:
-        src: templates/env.tmpl
+      copy:
+        src: ../../.env
         dest: "{{ deploy_dir }}/.env"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
         mode: '0644'
+
+    - name: Updating CORS_ORIGINS environment variables
+      lineinfile:
+        path: "{{ deploy_dir }}/.env"
+        regexp: '^CORS_ORIGINS='
+        line: CORS_ORIGINS='["http://{{ ansible_host }}:3030", "http://www.{{ ansible_host }}:3030"]'
+
+    - name: Synchronize worker to the server
+      synchronize:
+        src: ../../worker
+        dest: "{{ deploy_dir }}"
+        delete: true
+      become: false
+
+    - name: Build worker image
+      shell: docker build -t dropbase/worker "{{ deploy_dir }}/worker"
 
     - name: Pull and start the docker containers
       community.docker.docker_compose:
         project_src: "{{ deploy_dir }}"
         build: false
         pull: true
+      environment:
+        HOST_WORKSPACE_PATH: "{{ deploy_dir }}"
