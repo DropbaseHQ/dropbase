@@ -7,7 +7,7 @@ load_dotenv()
 
 if __name__ == "__main__":
 
-    r = redis.Redis(host="host.docker.internal", port=6379, db=0)
+    r = redis.Redis(host="redis", port=6379, db=0)
     response = {"stdout": "", "traceback": "", "message": "", "type": "", "status_code": 202}
 
     if os.getenv("type") == "string":

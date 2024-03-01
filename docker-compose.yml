@@ -5,7 +5,7 @@ services:
     ports:
       - "3030:80"
   dropbase-server:
-    image: dropbase/server:0.2.8
+    image: dropbase/server:0.2.9.0
     volumes:
       - ./workspace:/project/workspace
       - ./requirements-custom.txt:/project/requirements-custom.txt
