@@ -10,4 +10,4 @@ python-dotenv==1.0.0
 pymysql==1.1.0
 snowflake-sqlalchemy==1.5.1
 
-dropbase==0.0.8
+dropbase==0.0.9
