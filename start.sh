@@ -2,9 +2,7 @@
 
 # build dropbase/worker
 docker image rm dropbase/worker
-cd worker
-docker build -t dropbase/worker .
-cd ..
+docker build -t dropbase/worker worker/.
 
 # Set the HOST_WORKSPACE_PATH to the current directory to be used by dropbase-server
 export HOST_WORKSPACE_PATH=$(pwd)

@@ -77,7 +77,7 @@
       file:
         path: "{{ deploy_dir }}"
         state: directory
-        mode: '0755'
+        mode: "0755"
         owner: "{{ ansible_user }}"
         group: "{{ ansible_user }}"
 
@@ -87,7 +87,7 @@
         dest: "{{ deploy_dir }}/docker-compose.yml"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
-        mode: '0644'
+        mode: "0644"
 
     - name: Copy requirements-custom.txt to the server
       copy:
@@ -103,19 +103,26 @@
         delete: true
       become: false
 
+    - name: Synchronize files to the server
+      synchronize:
+        src: ../../files
+        dest: "{{ deploy_dir }}"
+        delete: true
+      become: false
+
     - name: Create app .env file
       copy:
         src: ../../.env
         dest: "{{ deploy_dir }}/.env"
         owner: "{{ deploy_user }}"
         group: "{{ deploy_user }}"
-        mode: '0644'
+        mode: "0644"
 
     - name: Updating CORS_ORIGINS environment variables
       lineinfile:
         path: "{{ deploy_dir }}/.env"
-        regexp: '^CORS_ORIGINS='
-        line: CORS_ORIGINS='["http://{{ ansible_host }}:3030", "http://www.{{ ansible_host }}:3030"]'
+        regexp: "^CORS_ORIGINS="
+        line: CORS_ORIGINS='["http://{{ ansible_host }}:3030", "http://www.{{ ansible_host }}:3030", "https://try.dropbase.io"]'
 
     - name: Synchronize worker to the server
       synchronize:
