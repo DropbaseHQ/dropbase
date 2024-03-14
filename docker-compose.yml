@@ -10,7 +10,6 @@ services:
       - ./workspace:/project/workspace
       - ./files:/project/files
       - /var/run/docker.sock:/var/run/docker.sock
-      # Attach custom volumes here
     ports:
       - "9090:9090"
     env_file:
