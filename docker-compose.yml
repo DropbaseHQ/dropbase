@@ -1,11 +1,11 @@
 version: "3.8"
 services:
   dropbase-client:
-    image: dropbase/client:0.2.7
+    image: dropbase/client:0.2.8
     ports:
       - "3030:80"
   dropbase-server:
-    image: dropbase/server:0.2.11
+    image: dropbase/server:0.2.14
     volumes:
       - ./workspace:/project/workspace
       - ./files:/project/files
