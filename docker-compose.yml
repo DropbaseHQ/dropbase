@@ -1,16 +1,15 @@
 version: "3.8"
 services:
   dropbase-client:
-    image: dropbase/client:0.2.7
+    image: dropbase/client:0.2.8
     ports:
       - "3030:80"
   dropbase-server:
-    image: dropbase/server:0.2.11
+    image: dropbase/server:0.2.14
     volumes:
       - ./workspace:/project/workspace
       - ./files:/project/files
       - /var/run/docker.sock:/var/run/docker.sock
-      # Attach custom volumes here
     ports:
       - "9090:9090"
     env_file:
