@@ -20,3 +20,4 @@ workspace/*
 !workspace/demo/
 !workspace/__init__.py
 dump.rdb
+config.toml
