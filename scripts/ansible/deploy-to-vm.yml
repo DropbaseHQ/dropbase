@@ -118,6 +118,14 @@
         group: "{{ deploy_user }}"
         mode: "0644"
 
+    - name: Create app toml file
+      copy:
+        src: ../../config.toml
+        dest: "{{ deploy_dir }}/config.toml"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+        mode: "0644"
+
     - name: Updating CORS_ORIGINS environment variables
       lineinfile:
         path: "{{ deploy_dir }}/.env"
