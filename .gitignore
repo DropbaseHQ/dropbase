@@ -15,9 +15,9 @@ __pycache__
 *node_modules/
 notebooks/
 
-proxy/frpc
 workspace/*
 !workspace/demo/
 !workspace/__init__.py
 dump.rdb
-config.toml
+server.toml
+worker.toml

@@ -1,1 +1,0 @@
-select * from orders order by order_id

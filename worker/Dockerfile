@@ -10,3 +10,5 @@ ADD . .
 # Install packages
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements-custom.txt
+
+CMD tail -f /dev/null
