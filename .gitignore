@@ -18,6 +18,7 @@ notebooks/
 workspace/*
 !workspace/demo/
 !workspace/__init__.py
+!workspace/properties.json
 dump.rdb
 server.toml
 worker.toml
