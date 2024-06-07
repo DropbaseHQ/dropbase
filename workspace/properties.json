@@ -2,9 +2,6 @@
   "apps": {
     "demo": {
       "label": "Demo"
-    },
-    "app": {
-      "label": "app"
     }
   }
 }
