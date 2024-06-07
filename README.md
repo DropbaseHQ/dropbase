@@ -52,16 +52,23 @@ In Dropbase root directory, create `server.toml` and `worker.toml` files:
 `server.toml` contains environmental variables for the server
 
 ```bash
-host_path = "" # absolute path to your working directory w/o trailing slash
-openai_api_key = ""
+host_path = "" # absolute path to your working directory w/o trailing slash e.g. "/Users/jimmyechan/dev/dropbase"
+openai_api_key = "" # required to use Dropbase AI features
 
 # optional
-host_mounts = [] # list of paths to directories you want to mount to the worker
+host_mounts = [] # list of paths to directories you want to mount to the worker. use to bring your custom scripts/libraries
 redis_host = "redis" # redis server's host address. keep `redis` to use built-in one
 task_timeout = 300 # number of seconds before worker task times out
 ```
 
-`worker.toml` contains environmental variables for the worker.
+`worker.toml` contains environmental variables for the worker. This includes database sources, API keys, or access token to third party services.
+
+To include API keys or tokens, add a name for the token and enter your string token. Though not required, adding a descriptive name helps Dropbase AI infer the key to use
+
+```bash
+stripe_key = "rk_test_123"
+mailgun_api_key="abc123"
+```
 
 To include database sources, use the following format: `database`.`database_type`.`database_nickname`
 
