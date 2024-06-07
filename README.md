@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h2 align="center">Build admin panels and internal web apps with Python</h3>
+<h2 align="center">Build custom internal software faster with AI</h3>
 
 <p align="center">
 <a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://docs.dropbase.io/quickstart">Quickstart</a> · <a href="https://docs.dropbase.io/category/demos">Demos</a> · <a href="https://docs.dropbase.io/setup/workspace">Sign up</a> · <a href="https://docs.dropbase.io/setup/developer">Local Setup</a><p>
@@ -17,19 +17,17 @@
 
 # Overview
 
-Dropbase is a developer-first platform to build internal web apps with just Python. It lets you easily import your existing Python libraries and scripts so you don’t have to rewrite them to fit our framework.
+Dropbase helps you build custom internal software faster with AI. Developers can quickly build anything from admin panels, billing dashboards, and internal engineering tools that can fetch data and trigger action accross any internal or external service.
 
-Build apps by selecting UI components from a list and binding them to data fetcher functions or Python scripts. Use State & Context objects to access and modify the UI state and context directly via Python functions. There's no need to write frontend code.
-
-Dropbase has a highly opinionated app layout that speeds up app development and results in simple apps that effectively solve user problems. All apps consists of a table view and a widget sidebar. By placing table(s) in the table view and UI components in the sidebar widget, you can quickly build anything from admin panels, billing dashboards, and internal engineering tools.
-
-Once you've built your apps, share them with other users via roles, groups, permissions, and granular controls.
+Existing low-code/no code tools lack flexibility, confine devs to building app logic by filling up UI forms, and have big learning curves. Dropbase uses AI to generate app code that you can verify and/or edit. We combine the convenience of an app builder with the flexibility of code, making it easy to build and customize, while learning to use the product as you see how the AI generates code using the Dropbase web framework.
 
 ## Why Dropbase?
 
-1. Build fullstack internal apps with just Python; there’s no need work with frontend libraries, frameworks, or code
-2. Easily import your existing Python scripts and libraries and leverage third party libraries like pandas and numpy in your apps
-3. Secure platform with granular app permissions, role based access control, self-hosted deployments, and source-available distribution
+1. Write any custom business logic with code
+2. Local-first, self-hosted. No creds are shared with us
+3. Dropbase lives in your codebase, making it easy to import or resuse custom scripts/libraries
+4. Everything in Dropbase is file-based so you could transfer apps by just sharing a zip file of your app directory
+5. It's built on Python and you can import any PyPI package. No need to hassle with frontend libraries/code
 
 ## Get Started
 
