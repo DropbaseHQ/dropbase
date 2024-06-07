@@ -25,83 +25,82 @@ Dropbase has a highly opinionated app layout that speeds up app development and 
 
 Once you've built your apps, share them with other users via roles, groups, permissions, and granular controls.
 
-## Structure of Dropbase Apps
-
-- Apps
-  - Page
-    1. Tables
-    2. Widget
-       - UI Components
-    3. Functions (data fetching functions or scripts)
-
 ## Why Dropbase?
 
 1. Build fullstack internal apps with just Python; there’s no need work with frontend libraries, frameworks, or code
 2. Easily import your existing Python scripts and libraries and leverage third party libraries like pandas and numpy in your apps
 3. Secure platform with granular app permissions, role based access control, self-hosted deployments, and source-available distribution
 
-## Demo Videos
-
-- [Data editor](https://youtu.be/R1cHO9lMRXo)
-- [Customer approval](https://youtu.be/A1MIIRNkv3Q)
-- [Email notification system](https://youtu.be/2uLjazAezrU)
-- [Admin panel](https://youtu.be/if0E8oC0Qc4)
-
 ## Get Started
-
-1. Create an account at https://app.dropbase.io/
-2. Follow instructions for local setup at: https://docs.dropbase.io/setup/developer (or see below for a quick local setup guide)
-
-## Quick Local Setup Guide
 
 ### 0. Pre-requisites
 
-- Sign up for Dropbase account
 - Install Docker. We strongly recommend using [Docker Desktop](https://www.docker.com/products/docker-desktop/), especially if you're on Apple M chips. Alternatively, you can install `docker` and `docker-compose`.
-- Have internet access.
 
 ### 1. Clone the `dropbase` repo
 
-```bash
+Clone the Dropbase repository
 
+```python
 git clone https://github.com/DropbaseHQ/dropbase.git
-
 ```
 
-The `dropbase` directory (root) will contain the following important subdirectories:
+### 2. Add server.toml and worker.toml files
 
-- demo: Contains docker files to spin up a sample Postgres database with seed data
-- workspace: Your apps code and files
+In Dropbase root directory, create `server.toml` and `worker.toml` files:
 
-Github repo at [Dropbase Worker](https://github.com/DropbaseHQ/dropbase).
-
-### 2. Create a .env file
-
-In the root directory (`dropbase`), create a `.env` file, paste the following context, then save it:
-
-```text
-
-DROPBASE_TOKEN='YOUR_WORKSPACE_TOKEN'
-DROPBASE_API_URL="https://api.dropbase.io"
-
-```
-
-### 3. Install requirements and start servers
-
-In your terminal, run the following commands from the root directory (`dropbase`)
+`server.toml` contains environmental variables for the server
 
 ```bash
+host_path = "" # absolute path to your working directory w/o trailing slash
+openai_api_key = ""
 
+# optional
+host_mounts = [] # list of paths to directories you want to mount to the worker
+redis_host = "redis" # redis server's host address. keep `redis` to use built-in one
+task_timeout = 300 # number of seconds before worker task times out
+```
+
+`worker.toml` contains environmental variables for the worker.
+
+To include database sources, use the following format: `database`.`database_type`.`database_nickname`
+
+For example, if you want to add a `postgres` database to a list of sources and use `my_source` as its nickname, add the following:
+
+```bash
+[database.postgres.my_source]
+host = "localhost"
+database = "postgres"
+username = "username"
+password = "password"
+port = 5432
+```
+
+A `demo` sqlite database is included in the files directory, so you can use it out of the the box by adding the following to your `worker.toml`.
+
+```bash
+[database.sqlite.demo]
+host = "files/demo.db"
+```
+
+NOTE: built-in demo requires database.sqlite.demo to be present in worker.toml
+
+### 3. Start the server
+
+Start the server by running start.sh
+
+NOTE: when starting the server for the first time, make start.sh executable
+
+```bash
 chmod +x start.sh
-./start.sh
+```
 
+You can start the server by running
+
+```bash
+./start.sh
 ```
 
 ### 4. Create your first Dropbase app
 
-Go to the Dropbase App Dashboard `localhost:3030/apps` from your browser and click on the Create app button to create your first Dropbase app.
-
-## Deploy to your server
-
-The Dropbase components come in the form of Docker containers. If you wish to implement them on your server, you can consult our [ansible scripts](./scripts/ansible) for deployment guidance.
-
+Go to the Dropbase App `http://localhost:3030/apps` from your browser and click on the `Create app` button to create your first Dropbase app.
