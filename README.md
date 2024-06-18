@@ -7,7 +7,7 @@
 <h2 align="center">Build custom internal software faster with AI</h3>
 
 <p align="center">
-<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://docs.dropbase.io/quickstart">Quickstart</a> · <a href="https://docs.dropbase.io/category/demos">Demos</a> · <a href="https://docs.dropbase.io/setup/workspace">Sign up</a> · <a href="https://docs.dropbase.io/setup/developer">Local Setup</a><p>
+<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a><p>
 
 <p align="center">
   <a href="https://dropbase.io" target="_blank">
