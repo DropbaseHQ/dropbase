@@ -11,23 +11,23 @@
 
 <p align="center">
   <a href="https://dropbase.io" target="_blank">
-      <img src="https://docs.dropbase.io/assets/images/dropbase_app-4082f07b1cdba1a5f3f5cf56e8d7676c.png" alt="Dropbase hero" />
+      <img src="https://cdn.prod.website-files.com/5f2c87246b17fcf662282594/661f0ba13ab0bb89a18de029_adminpanel-hero.webp" alt="Dropbase hero" />
   </a>
 </p>
 
 # Overview
 
-Dropbase helps you build custom internal software faster with AI. Developers can quickly build anything from admin panels, billing dashboards, and internal engineering tools that can fetch data and trigger action accross any internal or external service.
+Dropbase helps you build custom internal software faster with AI. Developers can quickly build anything from admin panels, billing dashboards, and internal engineering tools that can fetch data and trigger action across any internal or external service.
 
-Existing low-code/no code tools lack flexibility, confine devs to building app logic by filling up UI forms, and have big learning curves. Dropbase uses AI to generate app code that you can verify and/or edit. We combine the convenience of an app builder with the flexibility of code, making it easy to build and customize, while learning to use the product as you see how the AI generates code using the Dropbase web framework.
+Existing low-code/no code tools lack flexibility, confine devs to building app logic by filling up UI forms, and have big learning curves. Dropbase uses AI to generate app code that you can verify and/or edit. We combine the convenience of a drag-and-drop app builder with the flexibility of code, making it easy to build and customize, while learning to use the product as you see how the AI generates code using the Dropbase web framework.
 
 ## Why Dropbase?
 
 1. Write any custom business logic with code
-2. Local-first, self-hosted. No creds are shared with us
-3. Dropbase lives in your codebase, making it easy to import or resuse custom scripts/libraries
-4. Everything in Dropbase is file-based so you could transfer apps by just sharing a zip file of your app directory
-5. It's built on Python and you can import any PyPI package. No need to hassle with frontend libraries/code
+2. Built-in web framework with pre-built UI components - no need to hassle with frontend libraries/code
+3. Local-first, self-hosted. No creds are shared with us
+4. Dropbase lives in your codebase, making it easy to import or resuse custom scripts/libraries
+5. It's built on Python and you can import any PyPI package
 
 ## Get Started
 
