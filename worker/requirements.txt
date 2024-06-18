@@ -1,4 +1,4 @@
-pandas==2.1.1
+pandas==2.2.2
 astor==0.8.1
 redis==5.0.1
 sqlalchemy==1.4.46
