@@ -7,7 +7,7 @@
 <h2 align="center">Build custom internal software faster with AI</h3>
 
 <p align="center">
-<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://discord.gg/jRane4nH">Discord</a><p>
+<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://discord.gg/K4Hys7Czzp">Discord</a><p>
 
 <p align="center">
   <a href="https://dropbase.io" target="_blank">
