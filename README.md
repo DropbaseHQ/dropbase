@@ -47,24 +47,41 @@ git clone https://github.com/DropbaseHQ/dropbase.git
 
 In Dropbase root directory, create `server.toml` and `worker.toml` files:
 
+#### server.toml
+
 `server.toml` contains environmental variables for the server
 
 ```bash
-host_path = "" # absolute path to your working directory w/o trailing slash e.g. "/Users/jimmyechan/dev/dropbase"
-openai_api_key = "" # required to use Dropbase AI features
+host_path = ""
 
-# optional
-host_mounts = [] # list of paths to directories you want to mount to the worker. use to bring your custom scripts/libraries
-redis_host = "redis" # redis server's host address. keep `redis` to use built-in one
-task_timeout = 300 # number of seconds before worker task times out
+[llm.openai]
+api_key = ""
+model = ""
 ```
+
+Required variables include:
+
+- `host_path` - absolute path to your working directory w/o trailing slash e.g. `"/Users/zhakhan/dev/dropbase"`
+- `[llm.openai]` or `[llm.anthropic]` - OpenAI or Anthropic configuration. Required to use Dropbase AI Dev
+  - `api_key` - OpenAI or Anthropic API key
+  - `model` - the name of the model you want to use. If you don't provide a model name, it will default to `gpt-4o` for OpenAI and `claude-3-5-sonnet-20240620` for Anthropic.
+
+Other optional variables include:
+
+- `host_mounts` - list of paths to directories you want to mount to the worker. Use it to bring in custom scripts or directories
+- `redis_host` - redis server's host address. Default is `"redis"`
+- `task_timeout` - number of seconds before worker task times out. Default is 300 seconds
+
+| **IMPORTANT:** if you add optional variables, make sure to add them before LLM configuration (at the top-level table), since LLM configurations are defined as [table](https://toml.io/en/v1.0.0#table)
+
+#### worker.toml
 
 `worker.toml` contains environmental variables for the worker. This includes database sources, API keys, or access token to third party services.
 
 To include API keys or tokens, add a name for the token and enter your string token. Though not required, adding a descriptive name helps Dropbase AI infer the key to use
 
 ```bash
-stripe_key = "rk_test_123"
+stripe_key="rk_test_123"
 mailgun_api_key="abc123"
 ```
 
