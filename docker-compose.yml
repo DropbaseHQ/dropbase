@@ -5,7 +5,7 @@ services:
     ports:
       - "3030:80"
   dropbase-server:
-    image: dropbase/server:0.4.8
+    image: dropbase/server:0.4.10
     volumes:
       - ./workspace:/project/workspace
       - ./files:/project/files
