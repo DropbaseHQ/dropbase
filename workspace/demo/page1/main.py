@@ -92,6 +92,6 @@ class Table1(TableABC):
 class Widget1(WidgetABC):
 
     def components_button1_on_click(self, state: State, context: Context) -> Context:
-        context.page.message = "Good job!"
+        context.page.message = "Great!"
         context.page.message_type = "info"
         return context
