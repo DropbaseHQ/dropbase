@@ -29,6 +29,18 @@ Existing low-code/no code tools lack flexibility, confine devs to building app l
 4. Dropbase lives in your codebase, making it easy to import or resuse custom scripts/libraries
 5. It's built on Python and you can import any PyPI package
 
+## Demo
+
+### Build a simple app to search for customer orders and send slack messages
+<a href="https://youtu.be/RaxHOjhy3hY">
+  <img src="https://img.youtube.com/vi/RaxHOjhy3hY/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
+</a>
+
+### Build an orders app that uses charts
+<a href="https://youtu.be/YWtdD7THTxE">
+  <img src="https://img.youtube.com/vi/YWtdD7THTxE/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
+</a>
+
 ## Get Started
 
 ### 0. Pre-requisites
