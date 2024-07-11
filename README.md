@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h2 align="center">Build custom internal software faster with AI</h3>
+<h2 align="center">Prompt-Based Python Web App Builder</h3>
 
 <p align="center">
 <a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://discord.gg/K4Hys7Czzp">Discord</a><p>
@@ -17,7 +17,7 @@
 
 # Overview
 
-Dropbase helps you build custom internal software faster with AI. Developers can quickly build anything from admin panels, billing dashboards, and internal engineering tools that can fetch data and trigger action across any internal or external service.
+Dropbase helps you build and prototype web apps faster with AI. Developers can quickly build anything from admin panels, back-office tools, billing dashboards, and internal engineering tools that can fetch data and trigger action across any internal or external service.
 
 Existing low-code/no code tools lack flexibility, confine devs to building app logic by filling up UI forms, and have big learning curves. Dropbase uses AI to generate app code that you can verify and/or edit. We combine the convenience of a drag-and-drop app builder with the flexibility of code, making it easy to build and customize, while learning to use the product as you see how the AI generates code using the Dropbase web framework.
 
