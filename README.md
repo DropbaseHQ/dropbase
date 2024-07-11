@@ -4,10 +4,10 @@
   </a>
 </p>
 
-<h2 align="center">Prompt-Based Python Web App Builder</h3>
+<h2 align="center">Prompt-Based Python Web App Builder</h2>
 
 <p align="center">
-<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://discord.gg/K4Hys7Czzp">Discord</a><p>
+<a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://discord.gg/K4Hys7Czzp">Discord</a></p>
 
 <p align="center">
   <a href="https://dropbase.io" target="_blank">
@@ -23,20 +23,22 @@ Existing low-code/no code tools lack flexibility, confine devs to building app l
 
 ## Why Dropbase?
 
-1. Write any custom business logic with code
-2. Built-in web framework with pre-built UI components - no need to hassle with frontend libraries/code
-3. Local-first, self-hosted. No creds are shared with us
-4. Dropbase lives in your codebase, making it easy to import or resuse custom scripts/libraries
-5. It's built on Python and you can import any PyPI package
+1. Write any custom business logic with code.
+2. Built-in web framework with pre-built UI components - no need to hassle with frontend libraries/code.
+3. Local-first, self-hosted. No creds are shared with us.
+4. Dropbase lives in your codebase, making it easy to import or resuse custom scripts/libraries.
+5. It's built on Python and you can import any PyPI package.
 
 ## Demo
 
 ### Build a simple app to search for customer orders and send slack messages
+
 <a href="https://youtu.be/RaxHOjhy3hY">
   <img src="https://img.youtube.com/vi/RaxHOjhy3hY/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
 </a>
 
 ### Build an orders app that uses charts
+
 <a href="https://youtu.be/YWtdD7THTxE">
   <img src="https://img.youtube.com/vi/YWtdD7THTxE/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
 </a>
@@ -55,42 +57,43 @@ Clone the Dropbase repository
 git clone https://github.com/DropbaseHQ/dropbase.git
 ```
 
-### 2. Add server.toml and worker.toml files
+### 2. Start the server
 
-In Dropbase root directory, create `server.toml` and `worker.toml` files:
+Start the server by running start.sh
 
-#### server.toml
-
-`server.toml` contains environmental variables for the server
+**NOTE:** When starting the server for the first time, make `start.sh` executable.
 
 ```bash
-host_path = ""
-
-[llm.openai]
-api_key = ""
-model = ""
+chmod +x start.sh
 ```
 
-Required variables include:
+You can start the server by running
 
-- `host_path` - absolute path to your working directory w/o trailing slash e.g. `"/Users/zhakhan/dev/dropbase"`
-- `[llm.openai]` or `[llm.anthropic]` - OpenAI or Anthropic configuration. Required to use Dropbase AI Dev
-  - `api_key` - OpenAI or Anthropic API key
-  - `model` - the name of the model you want to use. If you don't provide a model name, it will default to `gpt-4o` for OpenAI and `claude-3-5-sonnet-20240620` for Anthropic.
+```bash
+./start.sh
+```
 
-Other optional variables include:
+### 3. Create your first Dropbase app
 
-- `host_mounts` - list of paths to directories you want to mount to the worker. Use it to bring in custom scripts or directories
-- `redis_host` - redis server's host address. Default is `"redis"`
-- `task_timeout` - number of seconds before worker task times out. Default is 300 seconds
+Go to the Dropbase App `http://localhost:3030/apps` from your browser and click on the `Create app` button to create your first Dropbase app.
 
-| **IMPORTANT:** if you add optional variables, make sure to add them before LLM configuration (at the top-level table), since LLM configurations are defined as [table](https://toml.io/en/v1.0.0#table)
+## Enabling AI features
 
-#### worker.toml
+Dropbase uses LLM (gpt, sonnet) to provide AI Developer feature. To enable it, add your OpenAI or Anthropic api key into `server.toml`. Example:
+
+```bash
+[llm.openai]
+api_key = "YOUR_API_KEY"
+model = "gpt-4o"
+```
+
+**IMPORTANT:** If you add additional environmental variables, make sure to add them before LLM configurations (at the top-level table), since LLM configurations are defined as [table](https://toml.io/en/v1.0.0#table)
+
+## Configuring Worker
 
 `worker.toml` contains environmental variables for the worker. This includes database sources, API keys, or access token to third party services.
 
-To include API keys or tokens, add a name for the token and enter your string token. Though not required, adding a descriptive name helps Dropbase AI infer the key to use
+To include API keys or tokens, add a name for the token and enter your string token. Though not required, adding a descriptive name helps Dropbase AI infer the key to use.
 
 ```bash
 stripe_key="rk_test_123"
@@ -110,31 +113,4 @@ password = "password"
 port = 5432
 ```
 
-A `demo` sqlite database is included in the files directory, so you can use it out of the the box by adding the following to your `worker.toml`.
-
-```bash
-[database.sqlite.demo]
-host = "files/demo.db"
-```
-
-NOTE: built-in demo requires database.sqlite.demo to be present in worker.toml
-
-### 3. Start the server
-
-Start the server by running start.sh
-
-NOTE: when starting the server for the first time, make start.sh executable
-
-```bash
-chmod +x start.sh
-```
-
-You can start the server by running
-
-```bash
-./start.sh
-```
-
-### 4. Create your first Dropbase app
-
-Go to the Dropbase App `http://localhost:3030/apps` from your browser and click on the `Create app` button to create your first Dropbase app.
+**NOTE:** The built-in demo requires `database.sqlite.demo` to be present in `worker.toml`.
