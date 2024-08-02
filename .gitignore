@@ -22,3 +22,5 @@ workspace/*
 dump.rdb
 server.toml
 worker.toml
+
+files/dev.db
