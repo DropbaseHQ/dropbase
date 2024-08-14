@@ -40,10 +40,18 @@ else
   echo "$WORKER_TOML already exists."
 fi
 
+# check files/dev.db exists and create if necessary
+if [ ! -f "files/dev.db" ]; then
+  echo "Creating files/dev.db..."
+  touch "files/dev.db"
+else
+  echo "files/dev.db already exists."
+fi
+
 
 # build dropbase/worker
 docker image rm dropbase/worker
 docker build -t dropbase/worker worker/.
 
 # Start containers
-docker-compose up
+docker compose up

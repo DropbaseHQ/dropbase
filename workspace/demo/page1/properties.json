@@ -1,91 +1,74 @@
 {
-  "table1": {
-    "block_type": "table",
-    "label": "Orders",
-    "name": "table1",
-    "description": null,
-    "columns": [
-      {
-        "name": "order_id",
-        "data_type": "int64",
-        "display_type": "integer",
-        "configurations": null,
-        "column_type": "python",
-        "hidden": false,
-        "editable": false
-      },
-      {
-        "name": "user_id",
-        "data_type": "int64",
-        "display_type": "integer",
-        "configurations": null,
-        "column_type": "python",
-        "hidden": false,
-        "editable": false
-      },
-      {
-        "name": "product_name",
-        "data_type": "object",
-        "display_type": "text",
-        "configurations": null,
-        "column_type": "python",
-        "hidden": false,
-        "editable": false
-      },
-      {
-        "name": "quantity",
-        "data_type": "int64",
-        "display_type": "integer",
-        "configurations": null,
-        "column_type": "python",
-        "hidden": false,
-        "editable": true
-      },
-      {
-        "name": "total_price",
-        "data_type": "float64",
-        "display_type": "float",
-        "configurations": null,
-        "column_type": "python",
-        "hidden": false,
-        "editable": true
-      },
-      {
-        "name": "order_date",
-        "data_type": "object",
-        "display_type": "text",
-        "configurations": null,
-        "column_type": "python",
-        "hidden": false,
-        "editable": false
-      }
-    ],
-    "header": [],
-    "footer": [],
-    "w": 9,
-    "h": 3,
-    "x": 0,
-    "y": 0
+  "blocks": {
+    "table1": {
+      "name": "table1",
+      "label": "Table 1",
+      "w": 10,
+      "h": 4,
+      "x": 0,
+      "y": 0,
+      "type": "table",
+      "description": null,
+      "refetch_interval": null,
+      "columns": [
+        {
+          "name": "order_id",
+          "data_type": "int64",
+          "display_type": "integer",
+          "column_type": "python"
+        },
+        {
+          "name": "user_id",
+          "data_type": "int64",
+          "display_type": "integer",
+          "column_type": "python"
+        },
+        {
+          "name": "product_name",
+          "data_type": "object",
+          "display_type": "text",
+          "column_type": "python"
+        },
+        {
+          "name": "quantity",
+          "data_type": "int64",
+          "display_type": "integer",
+          "column_type": "python"
+        },
+        {
+          "name": "total_price",
+          "data_type": "int64",
+          "display_type": "integer",
+          "column_type": "python"
+        },
+        {
+          "name": "order_date",
+          "data_type": "object",
+          "display_type": "text",
+          "column_type": "python"
+        }
+      ]
+    },
+    "button1": {
+      "name": "button1",
+      "label": "Click me",
+      "w": 2,
+      "h": 1,
+      "x": 10,
+      "y": 1,
+      "type": "button",
+      "color": "blue"
+    },
+    "text1": {
+      "name": "text1",
+      "label": "Text1",
+      "w": 2,
+      "h": 1,
+      "x": 10,
+      "y": 0,
+      "type": "text",
+      "text": "###### Markdown Text"
+    }
   },
-  "widget1": {
-    "block_type": "widget",
-    "label": "Actions",
-    "name": "widget1",
-    "description": null,
-    "type": "base",
-    "in_menu": true,
-    "components": [
-      {
-        "component_type": "button",
-        "label": "Click me",
-        "name": "button1",
-        "color": "blue",
-        "display_rules": null
-      }
-    ],
-    "w": 3,
-    "h": 3,
-    "x": 9,
-    "y": 0
-  }
+  "store": {}
 }
