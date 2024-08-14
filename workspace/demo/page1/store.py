@@ -4,12 +4,12 @@
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
 
-class Table1State(BaseModel):
+class Table1ColumnsStore(BaseModel):
     order_id: Optional[int] = Field(None, title='Order Id')
     user_id: Optional[int] = Field(None, title='User Id')
     product_name: Optional[str] = Field(None, title='Product Name')
@@ -18,5 +18,16 @@ class Table1State(BaseModel):
     order_date: Optional[str] = Field(None, title='Order Date')
 
 
-class State(BaseModel):
-    table1: Table1State
+class Table1UpdateRowStore(BaseModel):
+    row_index: Optional[int] = Field(None, title='Row Index')
+    old: Table1ColumnsStore
+    new: Table1ColumnsStore
+
+
+class Table1Store(BaseModel):
+    add: Table1ColumnsStore
+    update: Optional[List[Table1UpdateRowStore]] = Field([], title='Update')
+
+
+class Store(BaseModel):
+    table1: Optional[Table1Store] = None

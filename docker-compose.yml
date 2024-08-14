@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   dropbase-client:
-    image: dropbase/client:0.5.0
+    image: dropbase/client:0.5.1
     ports:
       - "3030:80"
   dropbase-server:
