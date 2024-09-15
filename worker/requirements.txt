@@ -1,9 +1,10 @@
+toml==0.10.2
 pandas==2.2.2
 astor==0.8.1
 redis==5.0.1
 sqlalchemy==1.4.46
-pydantic==1.10.15
+pydantic==2.8.2
 python-dotenv==1.0.0
 requests==2.31.0
 plotly==5.22.0
-dropbase==0.5.0
+dropbase==0.6.0
