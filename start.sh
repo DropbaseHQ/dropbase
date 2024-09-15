@@ -5,7 +5,7 @@ WORKING_DIR=$(pwd)
 
 # Define configuration file paths
 SERVER_TOML="server.toml"
-WORKER_TOML="worker.toml"
+WORKER_TOML="workspace/worker.toml"
 
 # Check and create server.toml if necessary
 if [ ! -f "$SERVER_TOML" ]; then
