@@ -4,6 +4,8 @@ services:
     image: dropbase/client:0.6.0
     ports:
       - "3030:80"
+    depends_on:
+      - dropbase-lsp
   dropbase-server:
     image: dropbase/server:0.6.0
     volumes:
@@ -21,11 +23,13 @@ services:
     volumes:
       - ./workspace:/project/workspace
       - ./files:/project/files
+      - ./ruff.toml:/project/ruff.toml
+      - /var/run/docker.sock:/var/run/docker.sock
       # Attach custom volumes here
-    ports:
-      - "9095:9095"
     environment:
       - PYTHONUNBUFFERED=1
+    ports:
+      - "9095:9095"
   redis:
     image: redis
     ports:
