@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h2 align="center">Prompt-Based Python Web App Builder</h2>
+<h2 align="center">AI-Based Python Web App Builder</h2>
 
 <p align="center">
 <a href="https://dropbase.io">Website</a> · <a href="https://docs.dropbase.io/">Docs</a> · <a href="https://discord.gg/K4Hys7Czzp">Discord</a></p>
@@ -17,17 +17,18 @@
 
 # Overview
 
-Dropbase helps you build and prototype web apps faster with AI. Developers can quickly build anything from admin panels, back-office tools, billing dashboards, and internal engineering tools that can fetch data and trigger action across any internal or external service.
+Dropbase helps you build and prototype web apps faster with AI. Developers can quickly build anything from admin panels, back-office tools, billing dashboards, and internal engineering tools that can fetch data from data sources and trigger action across any internal or external service.
 
 Existing low-code/no code tools lack flexibility, confine devs to building app logic by filling up UI forms, and have big learning curves. Dropbase uses AI to generate app code that you can verify and/or edit. We combine the convenience of a drag-and-drop app builder with the flexibility of code, making it easy to build and customize, while learning to use the product as you see how the AI generates code using the Dropbase web framework.
 
 ## Why Dropbase?
 
-1. Write any custom business logic with code.
+1. Write (or generate) any custom business logic with code.
 2. Built-in web framework with pre-built UI components - no need to hassle with frontend libraries/code.
 3. Local-first, self-hosted. No creds are shared with us.
 4. Dropbase lives in your codebase, making it easy to import or resuse custom scripts/libraries.
-5. It's built on Python and you can import any PyPI package.
+5. Apps are portable: app folders can be zipped and shared to other Dropbase users
+6. It's built on Python and you can import any PyPI package.
 
 ## Demo
 
@@ -92,6 +93,9 @@ model = "gpt-4o"
 ## Configuring Worker
 
 `worker.toml` contains environmental variables for the worker. This includes database sources, API keys, or access token to third party services.
+
+> [!IMPORTANT]
+> If you're upgrading to dropbase-server >v0.6.0, please ensure that `worker.toml` is in your `workspace` directory.
 
 To include API keys or tokens, add a name for the token and enter your string token. Though not required, adding a descriptive name helps Dropbase AI infer the key to use.
 
