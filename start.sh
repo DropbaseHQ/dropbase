@@ -53,5 +53,8 @@ fi
 docker image rm dropbase/worker
 docker build -t dropbase/worker worker/.
 
+# Set host path
+export HOST_PATH=$(pwd)
+
 # Start containers
 docker compose up

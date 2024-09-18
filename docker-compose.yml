@@ -1,13 +1,13 @@
 version: "3.8"
 services:
   dropbase-client:
-    image: dropbase/client:0.6.5
+    image: dropbase/client:0.6.6
     ports:
       - "3030:80"
     depends_on:
       - dropbase-lsp
   dropbase-server:
-    image: dropbase/server:0.6.4
+    image: dropbase/server:0.6.5
     volumes:
       - ./workspace:/project/workspace
       - ./files:/project/files
@@ -18,6 +18,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - REDIS_HOST=redis
+      - HOST_PATH=${HOST_PATH}
   dropbase-lsp:
     image: dropbase/lsp:0.1.0
     volumes:
