@@ -32,11 +32,30 @@ Existing low-code/no code tools lack flexibility, confine devs to building app l
 
 ## Demo
 
-### Build a simple app to search for customer orders and send slack messages
+### Order Dashboard with Integrations to Mailgun and Slack
 
-<a href="https://youtu.be/RaxHOjhy3hY">
-  <img src="https://img.youtube.com/vi/RaxHOjhy3hY/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
+In this demo, we show developers how to build a tool to lookup customers orders, and send order info via a email or a Slack channel
+
+<a href="https://youtu.be/oe87onXxRaI">
+  <img src="https://img.youtube.com/vi/oe87onXxRaI/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
 </a>
+
+### Salesforce Leads Editor
+
+In this demo, we show developers how to build an app to edit Salesforce leads in a spreadsheet interface
+
+<a href="https://youtu.be/fmyjd_bT_nE">
+  <img src="https://img.youtube.com/vi/fmyjd_bT_nE/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
+</a>
+
+### HubSpot Contacts Editor
+
+In this demo, we show developers how to build an app to edit HubSpot contacts in a spreadsheet interface
+
+<a href="https://youtu.be/OxL3UGj1yKE">
+  <img src="https://img.youtube.com/vi/OxL3UGj1yKE/maxresdefault.jpg" style="width:100%; max-width:100%; height:auto;">
+</a>
+
 
 ### Build an orders app that uses charts
 
