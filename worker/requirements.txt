@@ -7,4 +7,4 @@ pydantic==2.8.2
 python-dotenv==1.0.0
 requests==2.31.0
 plotly==5.22.0
-dropbase==0.6.2
+dropbase==0.6.3
