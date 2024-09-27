@@ -1,0 +1,7 @@
+[tool.black]
+line-length = 105
+include = '\.pyi?$'
+exclude = '''
+^(lsp|alembic)/
+'''
+target-version = ['py311']

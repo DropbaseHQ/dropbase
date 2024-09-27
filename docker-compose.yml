@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   dropbase-client:
     image: dropbase/client:0.6.7
@@ -7,12 +6,13 @@ services:
     depends_on:
       - dropbase-lsp
   dropbase-server:
-    image: dropbase/server:0.6.6
+    image: dropbase/server:0.6.7
     volumes:
       - ./workspace:/project/workspace
       - ./files:/project/files
       - /var/run/docker.sock:/var/run/docker.sock
       - ./server.toml:/project/server.toml
+      - ./pyproject.py.toml:/project/pyproject.py.toml
     ports:
       - "9090:9090"
     environment:
